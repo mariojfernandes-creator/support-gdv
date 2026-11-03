@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suporte GDV</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:wght@600&display=swap">
+<style>
+  html { color-scheme: light; }
+  body { margin: 0; }
+  /* Layout: coluna única estreita, cabeçalho em faixa verde, dois canais de contato em cartões. */
+  :root {
+    --bg: #f3f6f4;
+    --surface: #ffffff;
+    --fg: #17251f;
+    --muted: #5b6b63;
+    --line: #dbe4df;
+    --brand: #00573f;
+    --brand-fg: #ffffff;
+    --accent: #1f8a5f;
+    --accent-soft: #e4f2ea;
+    --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1a15;
+      --surface: #16241d;
+      --fg: #e6efe9;
+      --muted: #9bb0a5;
+      --line: #274034;
+      --brand: #0c3b2c;
+      --brand-fg: #f1f8f4;
+      --accent: #4fc08d;
+      --accent-soft: #1b3328;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1a15;
+    --surface: #16241d;
+    --fg: #e6efe9;
+    --muted: #9bb0a5;
+    --line: #274034;
+    --brand: #0c3b2c;
+    --brand-fg: #f1f8f4;
+    --accent: #4fc08d;
+    --accent-soft: #1b3328;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .band {
+    background: var(--brand);
+    color: var(--brand-fg);
+    padding-block: 40px 44px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 7vw, 38px);
+    line-height: 1.15;
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+  .sub { margin: 0; opacity: 0.9; }
+  main {
+    padding-block: 28px 40px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .lead { margin: 0 0 24px; max-width: 60ch; }
+  .channels { display: grid; gap: 16px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 0;
+  }
+  .label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 8px;
+  }
+  .phone {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 8vw, 34px);
+    font-variant-numeric: tabular-nums;
+    margin: 0 0 14px;
+    user-select: all;
+  }
+  .url {
+    margin: 0 0 14px;
+    font-size: 15px;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+    user-select: all;
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block;
+    font: inherit;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--brand);
+    background: var(--brand);
+    color: var(--brand-fg);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn.ghost {
+    background: transparent;
+    color: var(--fg);
+    border-color: var(--line);
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .status { font-size: 13px; color: var(--accent); min-height: 20px; margin: 10px 0 0; }
+  footer {
+    color: var(--muted);
+    font-size: 13px;
+    padding-block: 0 32px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .btn { transition: filter 0.15s ease; }
+  }
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="wrap">
+    <p class="eyebrow">GDV · Gestor de Vendas</p>
+    <h1>Suporte GDV</h1>
+    <p class="sub">Sistema de implantação e gestão de pedidos</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="lead">Dúvidas ou necessidade de suporte no GDV? Fale com a equipe pelo Zendesk, por um dos canais abaixo.</p>
+
+    <div class="channels">
+      <section class="card" aria-labelledby="l-tel">
+        <p class="label" id="l-tel">Telefone / WhatsApp</p>
+        <p class="phone" id="phone">11 94133-3005</p>
+        <div class="actions">
+          <a class="btn" href="https://wa.me/5511941333005" target="_blank" rel="noopener">Abrir no WhatsApp</a>
+          <button class="btn ghost" type="button" id="copy-phone">Copiar número</button>
+        </div>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card" aria-labelledby="l-form">
+        <p class="label" id="l-form">Formulário</p>
+        <p class="url">anhruminantes.zendesk.com/hc/pt-br</p>
+        <div class="actions">
+          <a class="btn" href="https://anhruminantes.zendesk.com/hc/pt-br" target="_blank" rel="noopener">Abrir formulário</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">ANH Ruminantes Brasil | Tortuga by dsm-firmenich</div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById("copy-phone");
+    var status = document.getElementById("status");
+    var phone = document.getElementById("phone");
+    function selectPhone() {
+      try {
+        var r = document.createRange();
+        r.selectNodeContents(phone);
+        var s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(r);
+      } catch (e) {}
+    }
+    btn.addEventListener("click", function () {
+      var text = "11 94133-3005";
+      var done = function () { status.textContent = "Número copiado."; };
+      var fail = function () { selectPhone(); status.textContent = "Número selecionado. Copie manualmente."; };
+      try {
+        navigator.clipboard.writeText(text).then(done, fail);
+      } catch (e) { fail(); }
+    });
+  })();
+</script>
+
+</body>
+</html>
